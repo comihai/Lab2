@@ -1,13 +1,13 @@
-package com.packets.clients;
+package com.packets.clientPack;
 
-import com.packets.cars.Car;
+import com.packets.carPack.CarClass;
 
 /**
  * Created by mihai on 10/26/2014.
  *
  * This is the class for client
  */
-public class Client {
+public class ClientClass {
     private String nume;
     private float buget;
     private int carId;
@@ -17,7 +17,7 @@ public class Client {
      * @param nume
      * @param buget
      */
-    public Client(String nume, float buget) {
+    public ClientClass(String nume, float buget) {
         this.nume = nume;
         this.buget = buget;
     }
@@ -51,7 +51,7 @@ public class Client {
      * buy method used for buying one car by the client
      * @param c
      */
-    public void buy(Car c)
+    public void buy(CarClass c)
     {
         if(c.getPret() >= this.getBuget())
         {

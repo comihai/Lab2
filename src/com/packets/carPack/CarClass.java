@@ -1,4 +1,4 @@
-package com.packets.cars;
+package com.packets.carPack;
 import java.util.Random;
 
 /**
@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * This is the class for Car
  */
-public class Car
+public class CarClass
 {
     private String nume;
     private String culoare;
@@ -26,7 +26,7 @@ public class Car
      * @param putere
      * @param pret
      */
-    public Car(String nume, String culoare, int i, float greutate, float putere, float pret) {
+    public CarClass(String nume, String culoare, int i, float greutate, float putere, float pret) {
         this.nume = nume;
         this.culoare = culoare;
         this.greutate = greutate;

@@ -1,19 +1,31 @@
 package com.packets.clients;
-import com.packets.cars.car;
+
+import com.packets.cars.Car;
 
 /**
  * Created by mihai on 10/26/2014.
+ *
+ * This is the class for client
  */
-public class client {
+public class Client {
     private String nume;
     private float buget;
     private int carId;
 
-
-    public client(String nume, float buget) {
+    /**
+     * Constructor for client class
+     * @param nume
+     * @param buget
+     */
+    public Client(String nume, float buget) {
         this.nume = nume;
         this.buget = buget;
     }
+
+    /**
+     * setters and getters
+     * @param buget
+     */
 
     public void setBuget(float buget) {
         this.buget = buget;
@@ -35,7 +47,11 @@ public class client {
         return carId;
     }
 
-    public void buy(car c)
+    /**
+     * buy method used for buying one car by the client
+     * @param c
+     */
+    public void buy(Car c)
     {
         if(c.getPret() >= this.getBuget())
         {

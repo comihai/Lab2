@@ -3,8 +3,11 @@ import java.util.Random;
 
 /**
  * Created by mihai on 10/26/2014.
+ *
+ *
+ * This is the class for Car
  */
-public class car
+public class Car
 {
     private String nume;
     private String culoare;
@@ -14,8 +17,16 @@ public class car
     private int id;
 
 
-
-    public car(String nume, String culoare, int i, float greutate, float putere, float pret) {
+    /**
+     * Constructor for Car class
+     * @param nume
+     * @param culoare
+     * @param i
+     * @param greutate
+     * @param putere
+     * @param pret
+     */
+    public Car(String nume, String culoare, int i, float greutate, float putere, float pret) {
         this.nume = nume;
         this.culoare = culoare;
         this.greutate = greutate;
@@ -23,12 +34,20 @@ public class car
         this.pret = pret;
         this.id = new Random().nextInt(1000000);
     }
+
+    /**
+     * The price for car rises on bad times
+     */
     public void criza()
     {
         pret += 10;
         System.out.println("Creste pretul cu 10 unitati!");
     }
 
+    /**
+     * getters and setters
+     * @return
+     */
     public String getNume() {
         return nume;
     }

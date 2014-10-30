@@ -1,6 +1,6 @@
 package com.packets.clientPack;
 
-import com.packets.carPack.CarClass;
+import com.packets.machinePack.CarClass;
 
 /**
  * Created by mihai on 10/26/2014.
@@ -53,7 +53,7 @@ public class ClientClass {
      */
     public void buy(CarClass c)
     {
-        if(c.getPret() >= this.getBuget())
+        if(c.getPrice() >= this.getBuget())
         {
             System.out.println("Masina costa prea mult!");
         }

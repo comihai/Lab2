@@ -1,32 +1,52 @@
-import com.packets.carPack.CarClass;
-import com.packets.clientPack.ClientClass;
+package com.packets;
+
+import com.packets.exceptionsPack.OffRoadVehicleException;
+import com.packets.interfacesPack.IOffRoadVehicle;
+import com.packets.machinePack.CarClass;
+import com.packets.machinePack.MachineClass;
+import com.packets.machinePack.MotorcycleClass;
+import com.packets.machinePack.TrackClass;
 
 /**
  * Created by mihai on 10/26/2014.
+ * <p/>
+ * This the main class of the project. It is also the entry point of the application.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+
+        IOffRoadVehicle offVehicle = new CarClass("Bmw", "rosu", 100, 120, 500, 100);
+        MachineClass moto = new MotorcycleClass(120, 230, "kawasaki", "albastru");
+        CarClass car = new CarClass(null, null, 0, 0, 0, 0);
+        MachineClass normalCar = new CarClass(null, null, 0, 0, 0, 0);
+        MachineClass truck = new TrackClass(200,230,"john deer",678.9,true);
+
         try {
-
-            //classes Instances
-            CarClass c;
-            c = new CarClass("volvo", "verde", 120, 45, 200, 78);
-            ClientClass cl;
-            cl = new ClientClass("Coca Mihai", 100);
-            cl.buy(c); //cumpar o masina prin asignarea valorii id-ului ei in variabila carId
-            System.out.println("Numarul de inregistrare al masinii mele este : " + cl.getCarId());
-
-            CarClass[] cars = new CarClass[5];
-            System.out.println(cars.length);
-            for (int i = 0; i <= cars.length; i++) { //arunca eroarea fiindca am depasit lungimea vectorului
-                cars[i] = new CarClass("dacia" + i, "visiniu", 23, 56, 122, 50);
-                System.out.println("Numarul de inmatriculare pt dacia" + i + " este : " + cars[i].getId());
-            }
-
-            cl.buy(cars[0]);
-
-        } catch (Exception e) {
-            System.out.println("Error 1");
+            offVehicle.driveOffRoad();
+        } catch (OffRoadVehicleException e) {
+            System.out.println("Exception : "+e.getMessage());
         }
+
+        try {
+            ((IOffRoadVehicle) moto).driveOffRoad();
+            ((IOffRoadVehicle) moto).attendingRoadTypes();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            car.driveOffRoad();
+
+        } catch (OffRoadVehicleException e) {
+            System.out.println("Exception : " + e.getMessage());
+        }
+        car.setName("Audi A6 convertible");
+        car.setColor("blue");
+
+        System.out.println("Is a convertible car?\n" + (car.isConvertible() ? "Yes!" : "No!"));
+
+
+        System.out.println("Is a racing truck?\n" + ((((TrackClass) truck).isHasTurbo() ? "Yes.It is!" : "No!" )));
+        System.out.println("Is a truck that is designed for use over rough terrain?\n" + ((( truck).designedForUseOverRoughTerrain() ? "Yes.It is!" : "No!" )));
     }
 }
